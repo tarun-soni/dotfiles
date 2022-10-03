@@ -1,6 +1,7 @@
 {
   "workbench.startupEditor": "newUntitledFile",
-  "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Fira Code, JetBrains Mono, Consolas, 'Courier New', monospace",
+
   "editor.fontLigatures": true,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -11,6 +12,9 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "labelClosing.amountOfLines": 20,
   "editor.matchBrackets": "always",
+  "dart.previewFlutterUiGuides": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.insertSpaces": true,
@@ -20,6 +24,8 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
   "city-lights-icons-vsc.hidesExplorerArrows": false,
   "stories.username": "Ratts Tyerel_dingo",
   "[html]": {
