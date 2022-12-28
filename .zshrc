@@ -132,5 +132,10 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export BUN_INSTALL="/Users/tarunbhagchandsoni/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
