@@ -13,6 +13,50 @@ export ZSH="$HOME/.oh-my-zsh"
 # robbyrussell
 ZSH_THEME="robbyrussell"
 
+alias czsh="code ~/.zshrc"
+
+# dir aliases
+alias pj="cd ~/Projects"
+alias gpj="cd ~/GA-Projects"
+alias rmrfnode="rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock"
+alias cdjio="cd ~/GA-Projects/jio"
+
+# for running multiple android 
+alias rna1="npx react-native run-android --variant=devDebug --port 8081 --deviceId emulator-5554"
+alias rna2="npx react-native run-android --variant=devDebug --port 8088 --deviceId emulator-5556"
+
+alias abdir="cd android/app/build/outputs/apk"
+
+alias bootxl="emulator -avd Pixel_XL_API_33"
+alias boot6="emulator -avd Pixel_6pro_API_33"
+alias adbr="adb reverse tcp:8081 tcp:8081"
+
+
+# yarn
+alias y="yarn"
+alias yd="yarn dev"
+alias ys="yarn start"
+alias ya="yarn android"
+# alias git no verify clone with a parameter
+# git -c http.sslVerify=false clone
+alias gnc="git -c http.sslVerify=false clone" 
+alias gsshpull='git -c http.sslVerify=false pull'
+alias gsshfetch='git -c http.sslVerify=false fetch'
+alias gsshpush='git -c http.sslVerify=false push'
+# npm config fix
+alias npmfix="npm config fix"
+
+alias jioweb="cd ~/GA-Projects/jio/jio-new/jio-web"
+
+# git config --local http.sslVerify false
+alias configSkip="git config --local http.sslVerify false"
+
+# yalc dir
+alias cdyalc="cd $HOME/.yalc"
+alias ybp="yarn build:push"
+# current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# alias cgb="echo Current branch: $current_branch"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,7 +118,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git react-native zsh-autosuggestions history)
+plugins=(git react-native zsh-autosuggestions history you-should-use)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -125,6 +169,8 @@ export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 # bun completions
 [ -s "/Users/tarunbhagchandsoni/.bun/_bun" ] && source "/Users/tarunbhagchandsoni/.bun/_bun"
 
@@ -136,6 +182,31 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export PATH=$PATH:$HOME/.maestro/bin
+
+# show node version
+function node_version_prompt_info() {
+  if [[ -n "$NVM_DIR" && -s "$NVM_DIR/nvm.sh" ]]; then
+    echo "($(nvm current))"
+  fi
+}
+
+# if .nvmrc file is found run nvm use
+if [[ -a .nvmrc ]]; then
+  nvm use
+fi
+
+
+
+# show node versoin in prompt
+export RPROMPT='$(node_version_prompt_info)'
+
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export OPENAI_API_KEY="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"
+# eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
