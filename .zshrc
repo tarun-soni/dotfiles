@@ -198,13 +198,20 @@ function node_version_prompt_info() {
 }
 
 # if .nvmrc file is found run nvm use
-if [[ -a .nvmrc ]]; then
-  nvm use
-fi
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc ]]; then
+    nvm use || nvm install
+  else
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 
 
-# show node versoin in prompt
+# show node version in prompt
 export RPROMPT='$(node_version_prompt_info)'
 
 # brew not found fix
@@ -216,7 +223,8 @@ export OPENAI_API_KEY="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"
 # eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 export PATH="$HOME/.fastlane/bin:$PATH"
