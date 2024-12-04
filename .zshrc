@@ -11,7 +11,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # robbyrussell
-ZSH_THEME="robbyrussell"
+# awesomepanda
+ZSH_THEME="bira"
+export GPG_TTY=$(tty)
 
 alias czsh="code ~/.zshrc"
 
@@ -30,7 +32,7 @@ alias abdir="cd android/app/build/outputs/apk"
 alias bootxl="emulator -avd Pixel_XL_API_33"
 alias boot6="emulator -avd Pixel_6pro_API_33"
 alias adbr="adb reverse tcp:8081 tcp:8081"
-
+alias treec="tree  -I 'node_modules' | pbcopy"
 
 # yarn
 alias y="yarn"
@@ -46,7 +48,7 @@ alias gsshpush='git -c http.sslVerify=false push'
 # npm config fix
 alias npmfix="npm config fix"
 
-alias jioweb="cd ~/GA-Projects/jio/jio-new/jio-web"
+alias jioweb="cd ~/GA-Projects/jio/jio-web"
 
 # git config --local http.sslVerify false
 alias configSkip="git config --local http.sslVerify false"
@@ -54,6 +56,9 @@ alias configSkip="git config --local http.sslVerify false"
 # yalc dir
 alias cdyalc="cd $HOME/.yalc"
 alias ybp="yarn build:push"
+# create alias to open current directory in finder
+alias o="open -a Finder ."
+
 # current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 # alias cgb="echo Current branch: $current_branch"
@@ -202,6 +207,8 @@ fi
 # show node versoin in prompt
 export RPROMPT='$(node_version_prompt_info)'
 
+# brew not found fix
+export PATH=/opt/homebrew/bin:$PATH
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
@@ -209,4 +216,14 @@ export OPENAI_API_KEY="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"
 # eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tarunbhagchandsoni/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Added by Windsurf
+export PATH="/Users/tarunbhagchandsoni/.codeium/windsurf/bin:$PATH"
