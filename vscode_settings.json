@@ -148,5 +148,17 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "explorer.compactFolders": false,
   "vs-code-prettier-eslint.prettierLast": true,
-  "editor.formatOnPaste": true
+  "prettify-ts.viewNestedTypes": true,
+  "prettify-ts.enableHover": true,
+  "eslint.codeActionsOnSave.rules": null,
+
+  "diffEditor.maxComputationTime": 0,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "workbench.editor.labelFormat": "short",
+
+  "scm.experimental.showHistoryGraph": true,
+  "RadonIDE.panelLocation": "secondary-side-panel",
+  "supermaven.enable": {
+    "*": false
+  }
 }
