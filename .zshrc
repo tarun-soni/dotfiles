@@ -1,10 +1,9 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -15,13 +14,18 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="bira"
 export GPG_TTY=$(tty)
 
-alias czsh="code ~/.zshrc"
+alias kp="kill-port"
+alias czsh="cursor ~/.zshrc"
+alias codezsh="code ~/.zshrc"
+alias p="pnpm"
+
+alias cc="claude --dangerously-skip-permissions"
+alias ccpr="claude --dangerously-skip-permissions 'explain this PR'"
+
 
 # dir aliases
 alias pj="cd ~/Projects"
-alias gpj="cd ~/GA-Projects"
 alias rmrfnode="rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock"
-alias cdjio="cd ~/GA-Projects/jio"
 
 # for running multiple android 
 alias rna1="npx react-native run-android --variant=devDebug --port 8081 --deviceId emulator-5554"
@@ -33,6 +37,7 @@ alias bootxl="emulator -avd Pixel_XL_API_33"
 alias boot6="emulator -avd Pixel_6pro_API_33"
 alias adbr="adb reverse tcp:8081 tcp:8081"
 alias treec="tree  -I 'node_modules' | pbcopy"
+
 
 # yarn
 alias y="yarn"
@@ -48,7 +53,6 @@ alias gsshpush='git -c http.sslVerify=false push'
 # npm config fix
 alias npmfix="npm config fix"
 
-alias jioweb="cd ~/GA-Projects/jio/jio-web"
 
 # git config --local http.sslVerify false
 alias configSkip="git config --local http.sslVerify false"
@@ -59,15 +63,6 @@ alias ybp="yarn build:push"
 # create alias to open current directory in finder
 alias o="open -a Finder ."
 
-# current_branch=$(git rev-parse --abbrev-ref HEAD)
-
-# alias cgb="echo Current branch: $current_branch"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -123,10 +118,16 @@ alias o="open -a Finder ."
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git react-native zsh-autosuggestions history you-should-use)
+plugins=(git react-native zsh-autosuggestions history )
 
 
 source $ZSH/oh-my-zsh.sh
+
+# Store original RPROMPT from theme (captured after theme loads)
+_original_rprompt="$RPROMPT"
+
+# Homebrew on PATH before nvm loads; nvm's `nvm use` prepends its Node and must run *after* any later PATH=... that prepends (see final load-nvmrc at end of file).
+export PATH=/opt/homebrew/bin:$PATH
 
 # User configuration
 
@@ -139,99 +140,130 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-# export JAVA_HOME="/usr/bin/java"
-export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.15)
 
-# for ruby in article 
-# https://medium.com/@davidjasonharding/developing-a-react-native-app-on-an-m1-mac-without-rosetta-29fcc7314d70
-export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+alias czsh="cursor ~/.zshrc"
+alias codezsh="code ~/.zshrc"
+alias w="open -a Warp ."
 
-
-# for andorid
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
-
-# bun completions
-[ -s "/Users/tarunbhagchandsoni/.bun/_bun" ] && source "/Users/tarunbhagchandsoni/.bun/_bun"
-
-# bun
-export BUN_INSTALL="/Users/tarunbhagchandsoni/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
-export PATH=$PATH:$HOME/.maestro/bin
+# Auto-switch Node when .nvmrc exists in cwd or any parent (same as `nvm use` without args)
+autoload -U add-zsh-hook
 
-# show node version
-function node_version_prompt_info() {
-  if [[ -n "$NVM_DIR" && -s "$NVM_DIR/nvm.sh" ]]; then
-    echo "($(nvm current))"
-  fi
+# After ~/.local/bin/env, Homebrew, or other tools prepend PATH, the first `node` can be
+# ~/.local/bin/node, brew, or another nvm version dir while `nvm which current` points at .nvmrc.
+# nvm does not re-prepend its bin when `nvm use` is a no-op, so put `nvm which current` first.
+nvm_prepend_active_bin_if_needed() {
+  [[ -z "$NVM_DIR" ]] && return
+  [[ -z "$(nvm_find_nvmrc 2>/dev/null)" ]] && return
+  local want_node got_node bindir
+  want_node="$(nvm which current 2>/dev/null)"
+  [[ -z "$want_node" || ! -x "$want_node" ]] && return
+  got_node="$(command -v node 2>/dev/null)"
+  [[ "$got_node" == "$want_node" ]] && return
+  bindir="$(dirname "$want_node")"
+  export PATH="$bindir:$PATH"
 }
 
-# if .nvmrc file is found run nvm use
-autoload -U add-zsh-hook
 load-nvmrc() {
-  if [[ -f .nvmrc ]]; then
-    nvm use || nvm install
-  else
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [[ -n "$nvmrc_path" ]]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(command cat "${nvmrc_path}")")
+
+    if [[ "$nvmrc_node_version" == "N/A" ]]; then
+      nvm install
+    elif [[ "$nvmrc_node_version" != "$node_version" ]]; then
+      nvm use
+    fi
+  elif [[ "$node_version" != "$(nvm version default)" ]]; then
     nvm use default
+  fi
+  if [[ -n "$(nvm_find_nvmrc 2>/dev/null)" ]]; then
+    # Re-sync after any PATH= prepends; prepend active bin if something else still wins.
+    nvm use >/dev/null 2>&1
+    nvm_prepend_active_bin_if_needed
   fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+function precmd_repair_nvm_path() {
+  nvm_prepend_active_bin_if_needed
+}
+
+# show node version in prompt (use node -v: matches pnpm and avoids subshell/nvm quirks)
+function node_version_prompt_info() {
+  if command -v node &> /dev/null; then
+    echo "%F{green}node:$(node -v 2>/dev/null)%f"
+  fi
+}
+
+# Update RPROMPT dynamically using precmd hook
+function update_node_version_prompt() {
+  local node_info
+  node_info=$(node_version_prompt_info)
+  if [[ -n "$node_info" ]]; then
+    # Combine original theme RPROMPT with node version
+    if [[ -n "$_original_rprompt" ]]; then
+      RPROMPT="$_original_rprompt $node_info"
+    else
+      RPROMPT="$node_info"
+    fi
+  else
+    # Restore original if no node info
+    RPROMPT="$_original_rprompt"
+  fi
+}
+
+add-zsh-hook precmd precmd_repair_nvm_path
+add-zsh-hook precmd update_node_version_prompt
 
 
-# show node version in prompt
-export RPROMPT='$(node_version_prompt_info)'
+# should be at the end
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH=$PATH:$HOME/.maestro/bin
 
-# brew not found fix
-export PATH=/opt/homebrew/bin:$PATH
+. "$HOME/.local/bin/env"
 
-export JAVA_HOME=$(/usr/libexec/java_home)
+# Added by Antigravity
+export PATH="/Users/tarunsoni/.antigravity/antigravity/bin:$PATH"
 
-export OPENAI_API_KEY="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"
-# eval "$(starship init zsh)"
+# flashlight
+export PATH="/Users/tarunsoni/.flashlight/bin:$PATH"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Re-apply .nvmrc after anything above prepends to PATH (e.g. ~/.local/bin/env); otherwise Homebrew/node shims win over nvm.
+load-nvmrc
 
-
-export PATH="$HOME/.fastlane/bin:$PATH"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tarunbhagchandsoni/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# Added by Windsurf
-export PATH="/Users/tarunbhagchandsoni/.codeium/windsurf/bin:$PATH"
+export EXPO_EDITOR="cursor"
