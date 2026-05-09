@@ -1,4 +1,5 @@
 {
+  "editor.codeLens": true,
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -36,6 +37,7 @@
   "[solidity]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -43,13 +45,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  "cSpell.enabled": true,
-  "city-lights-icons-vsc.hidesExplorerArrows": false,
-  "dart.previewFlutterUiGuides": true,
-  "dart.previewFlutterUiGuidesCustomTracking": true,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
-  "editor.fontFamily": "Geist Mono,Fira Code, Cascadia Code, JetBrains Mono, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Geist Mono ,Fira Code, Cascadia Code, JetBrains Mono, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 16,
   "editor.formatOnSave": true,
@@ -77,7 +75,7 @@
   "gitlens.currentLine.format": "${author, }${agoOrDate}${' via 'pullRequest}${ • message|50?} - Changes - ${changes}",
   "gremlins.showInProblemPane": true,
   "hardhat.telemetry": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
+
   "json.schemas": [],
   "labelClosing.amountOfLines": 20,
   "npm.keybindingsChangedWarningShown": true,
@@ -115,15 +113,13 @@
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.autoLockGroups": {
-    "default": true
+    "default": false
   },
-  "workbench.editor.enablePreview": false,
   "workbench.editor.wrapTabs": true,
-  "workbench.iconTheme": "vscode-simpler-icons",
+  "workbench.iconTheme": "vscode-icons-mac",
   "workbench.startupEditor": "newUntitledFile",
   "yaml.schemas": {
     "file:///Users/tarunsoni/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
@@ -138,27 +134,60 @@
   "CodeGPT.model": "gpt-4",
   "workbench.productIconTheme": "el-vsc-v1-icons",
   "workbench.editor.empty.hint": "hidden",
-  "codeium.enableConfig": {
-    "*": true,
-    "snippets": true,
-    "markdown": true
-  },
   "window.nativeTabs": true,
   "nxConsole.showNodeVersionOnStartup": false,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "explorer.compactFolders": false,
-  "vs-code-prettier-eslint.prettierLast": true,
+
   "prettify-ts.viewNestedTypes": true,
   "prettify-ts.enableHover": true,
   "eslint.codeActionsOnSave.rules": null,
-
   "diffEditor.maxComputationTime": 0,
   "prisma.showPrismaDataPlatformNotification": false,
   "workbench.editor.labelFormat": "short",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "cursor.cpp.disabledLanguages": ["scminput"],
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "update.releaseTrack": "dev",
+  "update.mode": "silentlyApplyOnQuit",
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "apps/mobile/features/auth/context/SignUpContext.tsx"
+  ],
+  "claudeCode.preferredLocation": "panel",
+  "editor.organizeImportsOnSave": false,
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll": "never"
+  },
 
-  "scm.experimental.showHistoryGraph": true,
-  "RadonIDE.panelLocation": "secondary-side-panel",
-  "supermaven.enable": {
-    "*": false
-  }
+  "typescript.preferences.organizeImports": {
+    "enabled": false
+  },
+
+  "javascript.preferences.organizeImports": {
+    "enabled": false
+  },
+
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.suggest.autoImports": false,
+  "jest.runMode": {
+    "type": "on-demand",
+    "deferred": true
+  },
+  "cursor.general.glassShowWarningNotifications": true,
+  "RadonIDE.deviceSettings.location": {
+    "latitude": 50.048653,
+    "longitude": -122.4324,
+    "isDisabled": true
+  },
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "window.autoDetectColorScheme": false
 }
